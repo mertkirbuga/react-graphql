@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -9,6 +10,43 @@ ReactDOM.render(
     <App />
   </React.StrictMode>,
   document.getElementById('root')
+=======
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+const client = new ApolloClient({
+	uri: "https://countries.trevorblades.com/",
+	cache: new InMemoryCache(),
+});
+
+/* client
+	.query({
+		query: gql`
+			query {
+				continent(code: "EU") {
+					name
+					countries {
+						name
+					}
+				}
+			}
+		`,
+	})
+	.then((res) => console.log(res)); */
+
+
+
+
+ReactDOM.render(
+	<ApolloProvider client={client}>
+		<App />
+	</ApolloProvider>,
+	document.getElementById("root")
+>>>>>>> 299a9db (Initial commit)
 );
 
 // If you want to start measuring performance in your app, pass a function
